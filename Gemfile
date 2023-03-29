@@ -126,3 +126,6 @@ gem 'simple_command', '~> 1.0', '>= 1.0.1'
 
 # Haml-rails provides Haml generators for Rails 5, 6, and 7
 gem 'haml-rails', '~> 2.1'
+
+# A flexible authentication solution for Rails based on Warden
+gem 'devise', '~> 4.9'
