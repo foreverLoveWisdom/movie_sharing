@@ -1,24 +1,28 @@
-# README
+## Milestone 1: Project Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- [] Create a new Ruby on Rails project
+- [] Initialize a Git repository for version control
+- [] Set up user authentication using Devise gem
+- [] Create a landing page with login and register buttons
 
-Things you may want to cover:
+## Milestone 2: Share Movie Feature
 
-* Ruby version
+- [] Create a "Share a movie" button that is only visible when user is signed in
+- [] Create a form for sharing a YouTube movie
+- [] Save the shared movie to the database
+- [] Display a success message after a movie has been shared
 
-* System dependencies
+## Milestone 3: See Movie List Feature
 
-* Configuration
+- [] Create a page for visitors to see a list of all shared movies
+- [] Add pagination to the movie list page
+- [] Make the movie list page responsive
+- [] Write integration tests for sharing and viewing movies
+- [] Write unit tests for models and controllers
 
-* Database creation
+## Milestone 4: Finalization and Submission
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [] Perform final testing to ensure that all features are working as expected
+- [] Update the README file with instructions on how to run the project locally
+- [] Upload the source code to GitHub
+- [] Submit the project to the assigned link
