@@ -9,5 +9,29 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
   %body
-    .container
+    .container-fluid
+      %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+        %a.navbar-brand{ href: root_path} Google Search Extractor
+        %button.navbar-toggler{ type: "button", "data-bs-toggle": "collapse", "data-bs-target": "#navbarNav", "aria-controls": "navbarNav", "aria-expanded": "false", "aria-label": "Toggle navigation" }
+          %span.navbar-toggler-icon
+        #navbarNav.collapse.navbar-collapse
+          %ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+            - if user_signed_in?
+              %li.nav-item
+                = link_to "Uploaded Keywords", keywords_path, class: "nav-link"
+              %li.nav-item
+                = link_to "Search Across Report", search_path, class: "nav-link"
+              %li.nav-link
+                %span.navbar-text= username(current_user)
+              %li.nav-item
+                = link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link"
+            - else
+              %li.nav-item
+                = link_to "Sign in", new_user_session_path, class: "nav-link"
+              %li.nav-item
+                = link_to "Sign up", new_user_registration_path, class: "nav-link"
+
+      .container
+        = render partial: 'layouts/flash'
+
       = yield
