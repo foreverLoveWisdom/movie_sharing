@@ -110,6 +110,9 @@ group :test do
 
   # Code coverage for Ruby with a powerful configuration library and automatic merging of coverage across test suites
   gem 'simplecov', '~> 0.22.0', require: false
+
+  # One-liners to test common Rails functionality
+  gem 'shoulda-matchers', '~> 5.3'
 end
 
 # A RuboCop extension focused on enforcing Rails best practices and coding conventions.
@@ -126,3 +129,6 @@ gem 'simple_command', '~> 1.0', '>= 1.0.1'
 
 # Haml-rails provides Haml generators for Rails 5, 6, and 7
 gem 'haml-rails', '~> 2.1'
+
+# A flexible authentication solution for Rails based on Warden
+gem 'devise', '~> 4.9'

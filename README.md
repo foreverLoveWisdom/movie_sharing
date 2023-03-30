@@ -1,9 +1,9 @@
 ## Milestone 1: Project Setup
 
-- [] Create a new Ruby on Rails project
-- [] Initialize a Git repository for version control
-- [] Set up user authentication using Devise gem
-- [] Create a landing page with login and register buttons
+- [x] Create a new Ruby on Rails project
+- [x] Initialize a Git repository for version control
+- [x] Set up user authentication using Devise gem
+- [x] Create a landing page with login and register buttons
 
 ## Milestone 2: Share Movie Feature
 

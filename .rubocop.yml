@@ -10,6 +10,8 @@ AllCops:
    - 'config/environments/*.rb'
    - Gemfile
    - config/routes.rb
+   - 'config/initializers/*.rb'
+   - 'lib/tasks/**/*'
 
   NewCops: enable
 
@@ -361,4 +363,6 @@ Metrics/BlockLength:
 RSpec/MultipleMemoizedHelpers:
   Enabled: false
 RSpec/NestedGroups:
+  Enabled: false
+RSpec/ExampleLength:
   Enabled: false
