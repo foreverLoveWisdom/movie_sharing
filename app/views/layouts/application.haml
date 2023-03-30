@@ -8,6 +8,7 @@
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
+    %script{crossorigin: "anonymous", integrity: "sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==", referrerpolicy: "no-referrer", src: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"}
   %body
     .container-fluid
       %nav.navbar.navbar-expand-lg.navbar-light.bg-light
@@ -22,7 +23,7 @@
               %li.nav-item
                 = link_to "Share a movie", "", class: "nav-link"
               %li.nav-item
-                = link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link"
+                = link_to "Logout", destroy_user_session_path, class: "nav-link"
             - else
               %li.nav-item
                 = link_to "Sign in", new_user_session_path, class: "nav-link"
