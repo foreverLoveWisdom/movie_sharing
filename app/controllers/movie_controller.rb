@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Handle routing logic for Movie
+# Handle movies routing
 class MovieController < ApplicationController
   def index; end
 end
