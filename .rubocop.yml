@@ -11,6 +11,7 @@ AllCops:
    - Gemfile
    - config/routes.rb
    - 'config/initializers/*.rb'
+   - 'lib/tasks/**/*'
 
   NewCops: enable
 
