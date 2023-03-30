@@ -362,3 +362,5 @@ RSpec/MultipleMemoizedHelpers:
   Enabled: false
 RSpec/NestedGroups:
   Enabled: false
+RSpec/ExampleLength:
+  Enabled: false
