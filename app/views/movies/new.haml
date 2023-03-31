@@ -1,0 +1,31 @@
+%section.section
+  .row.justify-content-center
+    .col-md-8
+      %h1 Share a Youtube movie
+      = form_with model: @movie do |form|
+        - if @movie.errors.any?
+          .alert.alert-danger
+            %ul
+              - @movie.errors.full_messages.each do |msg|
+                %li= msg
+
+        .form-group.mb-3
+          = form.label :title
+          = form.text_field :title, class: 'form-control', placeholder: 'Enter title', required: true
+          .invalid-feedback
+            Please enter a title.
+
+        .form-group.mb-3
+          = form.label :description
+          = form.text_area :description, class: 'form-control', placeholder: 'Enter description', required: true
+          .invalid-feedback
+            Please enter a description.
+
+        .form-group.mb-3
+          = form.label :youtube_url
+          = form.text_field :youtube_url, class: 'form-control', placeholder: 'Enter Youtube URL', required: true
+          .invalid-feedback
+            Please enter a valid Youtube URL.
+
+        .mb-3.text-center
+          = form.submit 'Share', class: 'btn btn-primary'

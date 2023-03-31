@@ -1,4 +1,7 @@
 en:
+  movie:
+    create:
+      success: Movie shared successfully.
   errors:
     movie:
       youtube_id:

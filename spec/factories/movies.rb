@@ -6,7 +6,7 @@
 #
 #  id          :bigint           not null, primary key
 #  description :string(500)      default(""), not null
-#  title       :string           default(""), not null
+#  title       :string(100)      default(""), not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :bigint           not null

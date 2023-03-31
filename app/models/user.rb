@@ -24,6 +24,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  has_many :movies, dependent: :destroy
+
   validates :username, uniqueness: true
   validates :username, presence: true
 end

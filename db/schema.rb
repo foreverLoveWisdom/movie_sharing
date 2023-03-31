@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 20_230_331_033_239) do
 
   create_table 'movies', force: :cascade do |t|
     t.bigint 'user_id', null: false
-    t.string 'title', default: '', null: false
+    t.string 'title', limit: 100, default: '', null: false
     t.string 'youtube_id', null: false
     t.string 'description', limit: 500, default: '', null: false
     t.datetime 'created_at', null: false

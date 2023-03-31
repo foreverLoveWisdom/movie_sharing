@@ -1,0 +1,12 @@
+%section.section
+  .container
+    %h1.text-center.mb-5 Movies
+    .row.row-cols-1.row-cols-md-2.row-cols-lg-3.g-4
+      - @movies.each do |movie|
+        .col.text-center
+          .card.h-100
+            .embed-responsive.embed-responsive-16by9
+              = embed_youtube_movie(full_youtube_url(movie.youtube_id))
+            .card-body
+              %h5.card-title= movie.title
+              %p.card-text= movie.description
