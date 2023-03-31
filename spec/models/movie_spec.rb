@@ -24,6 +24,10 @@
 require 'rails_helper'
 
 RSpec.describe Movie do
+  describe 'associations' do
+    it { is_expected.to belong_to(:user) }
+  end
+
   describe 'validations' do
     subject(:movie) { build(:movie, user:) }
 
@@ -43,10 +47,6 @@ RSpec.describe Movie do
       expect(movie).not_to allow_value('AbCdEfGhIjK ').for(:youtube_id)
       expect(movie).not_to allow_value(' AbCdEfGhIjK').for(:youtube_id)
     end
-  end
-
-  describe 'associations' do
-    it { is_expected.to belong_to(:user) }
   end
 
   describe 'database columns' do
