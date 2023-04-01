@@ -127,6 +127,26 @@ RSpec.describe 'Share Movie', type: :feature do
           expect(page).to have_content('Title is too long (maximum is 100 characters)')
         end
       end
+
+      context 'when user tries to share a movie that has already been shared' do
+        let!(:movie) { create(:movie, youtube_id: YoutubeIdParser.parse(youtube_url)) }
+
+        before do
+          fill_in 'Title', with: movie.title
+          fill_in 'Description', with: movie.description
+          fill_in 'Youtube url', with: youtube_url
+
+          click_on 'Share'
+        end
+
+        it 'does not create a new movie' do
+          expect(Movie.count).to eq(1)
+        end
+
+        it 'shows an error message' do
+          expect(page).to have_content('has already been taken')
+        end
+      end
     end
   end
 
@@ -137,6 +157,21 @@ RSpec.describe 'Share Movie', type: :feature do
 
     it 'does not show the share movie link' do
       expect(page).not_to have_content('Share a movie')
+    end
+
+    context 'when visitor tries to go to share movie page' do
+      before do
+        visit new_movie_path
+      end
+
+      it 'redirects to login page' do
+        visit new_movie_path
+        expect(page).to have_current_path(new_user_session_path)
+      end
+
+      it 'show sign in message' do
+        expect(page).to have_content('You need to sign in or sign up before continuing.')
+      end
     end
   end
 end

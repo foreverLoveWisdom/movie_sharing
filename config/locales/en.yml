@@ -6,4 +6,3 @@ en:
     movie:
       youtube_id:
         invalid: 'is not a valid YouTube ID'
-
