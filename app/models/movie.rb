@@ -22,11 +22,26 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Movie < ApplicationRecord
+  attr_accessor :youtube_url
+
   belongs_to :user
 
   validates :title, length: { maximum: 100 }, presence: true
   validates :description, length: { maximum: 500 }, presence: true
+  validate  :validate_youtube_url
   validates :youtube_id, presence: true,
                          uniqueness: true,
                          format: { with: /\A[A-Za-z0-9_-]{11}\z/, message: I18n.t('errors.movie.youtube_id.invalid') }
+
+  private
+
+  def validate_youtube_url
+    return if youtube_url.blank?
+
+    begin
+      self.youtube_id = YoutubeIdParser.parse(youtube_url)
+    rescue YoutubeIdParser::InvalidUrlError
+      errors.add(:youtube_url, I18n.t('errors.movie.youtube_id.invalid'))
+    end
+  end
 end
