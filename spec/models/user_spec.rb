@@ -23,11 +23,17 @@
 require 'rails_helper'
 
 RSpec.describe User do
-  describe 'validations' do
-    it { is_expected.to validate_uniqueness_of(:username) }
+  describe 'associations' do
+    it { is_expected.to have_many(:movies).dependent(:destroy) }
   end
 
-  describe 'devise modules' do
+  describe 'validations' do
+    it { is_expected.to validate_uniqueness_of(:username) }
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_presence_of(:username) }
+  end
+
+  describe 'database columns' do
     it { is_expected.to have_db_column(:email).of_type(:string).with_options(default: '', null: false) }
     it { is_expected.to have_db_column(:encrypted_password).of_type(:string).with_options(default: '', null: false) }
     it { is_expected.to have_db_column(:remember_created_at).of_type(:datetime) }
@@ -36,8 +42,5 @@ RSpec.describe User do
     it { is_expected.to have_db_column(:username).of_type(:string).with_options(default: '', null: false) }
     it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(null: false) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime).with_options(null: false) }
-
-    it { is_expected.to validate_presence_of(:email) }
-    it { is_expected.to validate_presence_of(:username) }
   end
 end

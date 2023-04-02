@@ -21,7 +21,7 @@
               %li.nav-link
                 %span.navbar-text= username(current_user)
               %li.nav-item
-                = link_to "Share a movie", "", class: "nav-link"
+                = link_to "Share a movie", new_movie_path, class: "nav-link"
               %li.nav-item
                 = link_to "Logout", destroy_user_session_path, class: "nav-link"
             - else
@@ -33,4 +33,4 @@
       .container
         = render partial: 'layouts/flash'
 
-      = yield
+        = yield
