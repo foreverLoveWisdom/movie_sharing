@@ -6,7 +6,7 @@
         .col.text-center
           .card.h-100
             .embed-responsive.embed-responsive-16by9
-              = embed_youtube_movie(full_youtube_url(movie.youtube_id))
+              = embed_youtube_movie(movie.youtube_id)
             .card-body
               %h5.card-title= movie.title
               %p.card-text= movie.description

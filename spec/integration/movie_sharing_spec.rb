@@ -51,7 +51,7 @@ RSpec.describe 'Share Movie', type: :feature do
         end
 
         it 'shows the embedded YouTube video' do
-          expect(page).to have_css("iframe[src*='#{embed_youtube_movie}']")
+          expect(page).to have_css("iframe[src='#{embed_youtube_movie}']")
         end
       end
     end
