@@ -6,3 +6,4 @@ en:
     movie:
       youtube_id:
         invalid: Url does not contain a valid YouTube ID
+        duplicate: id or the movie has already been shared

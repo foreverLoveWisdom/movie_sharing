@@ -37,7 +37,7 @@ RSpec.describe Movie do
     it { is_expected.to validate_presence_of(:description) }
     it { is_expected.to validate_length_of(:title).is_at_most(100) }
     it { is_expected.to validate_length_of(:description).is_at_most(500) }
-    it { is_expected.to validate_uniqueness_of(:youtube_id) }
+    it { is_expected.to validate_uniqueness_of(:youtube_id).with_message(I18n.t('errors.movie.youtube_id.duplicate')) }
   end
 
   describe 'database columns' do

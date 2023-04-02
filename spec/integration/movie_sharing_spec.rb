@@ -144,7 +144,7 @@ RSpec.describe 'Share Movie', type: :feature do
         end
 
         it 'shows an error message' do
-          expect(page).to have_content('has already been taken')
+          expect(page).to have_content('id or the movie has already been shared')
         end
       end
     end

@@ -29,7 +29,7 @@ class Movie < ApplicationRecord
   validates :title, length: { maximum: 100 }, presence: true
   validates :description, length: { maximum: 500 }, presence: true
   validate  :validate_youtube_url
-  validates :youtube_id, uniqueness: true
+  validates :youtube_id, uniqueness: { message: I18n.t('errors.movie.youtube_id.duplicate') }
 
   private
 
