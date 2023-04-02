@@ -18,9 +18,14 @@ youtube_info = [
   }
 ]
 
-puts 'Seeding movies...'
+Rails.logger.debug 'Seeding movies...'
 youtube_info.each do |yt_info|
   user = User.create!(email: Faker::Internet.email, username: Faker::Internet.username, password: 'password')
-  Movie.create!(user:, title: yt_info[:title], youtube_id: yt_info[:youtube_id], description: yt_info[:description])
+  # Skip validation to seed youtube_id into db directly
+  movie = Movie.new(user:,
+                    title: yt_info[:title],
+                    youtube_id: yt_info[:youtube_id],
+                    description: yt_info[:description])
+  movie.save(validate: false)
 end
-puts 'Finished seeding movies!'
+Rails.logger.debug 'Finished seeding movies!'
