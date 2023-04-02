@@ -5,4 +5,5 @@ en:
   errors:
     movie:
       youtube_id:
-        invalid: 'is not a valid YouTube ID'
+        invalid: Url does not contain a valid YouTube ID
+        duplicate: id or the movie has already been shared
