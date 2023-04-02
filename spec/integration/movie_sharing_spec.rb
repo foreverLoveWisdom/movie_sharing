@@ -70,7 +70,7 @@ RSpec.describe 'Share Movie', type: :feature do
         end
 
         it 'shows an error message' do
-          expect(page).to have_content('is not a valid YouTube ID')
+          expect(page).to have_content('Url does not contain a valid YouTube ID')
         end
       end
 
@@ -129,7 +129,7 @@ RSpec.describe 'Share Movie', type: :feature do
       end
 
       context 'when user tries to share a movie that has already been shared' do
-        let!(:movie) { create(:movie, youtube_id: YoutubeIdParser.parse(youtube_url)) }
+        let!(:movie) { create(:movie, youtube_url:) }
 
         before do
           fill_in 'Title', with: movie.title

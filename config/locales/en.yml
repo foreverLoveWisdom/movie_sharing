@@ -5,4 +5,4 @@ en:
   errors:
     movie:
       youtube_id:
-        invalid: 'is not a valid YouTube ID'
+        invalid: Url does not contain a valid YouTube ID
