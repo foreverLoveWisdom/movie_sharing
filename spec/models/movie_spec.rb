@@ -29,25 +29,15 @@ RSpec.describe Movie do
   end
 
   describe 'validations' do
-    subject(:movie) { build(:movie, user:) }
+    subject(:movie) { create(:movie, user:) }
 
     let!(:user) { create(:user) }
 
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:description) }
-    it { is_expected.to validate_presence_of(:youtube_id) }
     it { is_expected.to validate_length_of(:title).is_at_most(100) }
     it { is_expected.to validate_length_of(:description).is_at_most(500) }
-    it { is_expected.to validate_uniqueness_of(:youtube_id) }
-
-    it 'validate youtube_id' do
-      expect(movie).to allow_value('AbCdEfGhIjK').for(:youtube_id)
-      expect(movie).to allow_value('12345678901').for(:youtube_id)
-      expect(movie).not_to allow_value('AbCdEfGhIjKl').for(:youtube_id)
-      expect(movie).not_to allow_value('AbCdEfGhIjK!').for(:youtube_id)
-      expect(movie).not_to allow_value('AbCdEfGhIjK ').for(:youtube_id)
-      expect(movie).not_to allow_value(' AbCdEfGhIjK').for(:youtube_id)
-    end
+    it { is_expected.to validate_uniqueness_of(:youtube_id).with_message(I18n.t('errors.movie.youtube_id.duplicate')) }
   end
 
   describe 'database columns' do

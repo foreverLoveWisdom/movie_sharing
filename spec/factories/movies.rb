@@ -25,7 +25,7 @@ FactoryBot.define do
   factory :movie do
     association :user
     title { Faker::Movie.title }
-    youtube_id { Faker::Alphanumeric.alphanumeric(number: 11) }
+    youtube_url { Faker::Internet.url(host: 'youtube.com', path: "/watch?v=#{Faker::Alphanumeric.alpha(number: 11)}") }
     description { Faker::Lorem.paragraph }
   end
 end
