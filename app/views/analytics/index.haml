@@ -1,0 +1,9 @@
+%h1.display-4 Analytics
+%main
+  %p.lead
+    Total shared movies: #{@total_movies}
+  %section
+    %h2.h4 Most popular movies
+    %ol
+      - @most_popular_movies.each do |title|
+        %li= title

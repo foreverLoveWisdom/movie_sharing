@@ -132,3 +132,6 @@ gem 'devise', '~> 4.9'
 
 # Faker, a port of Data::Faker from Perl, is used to easily generate fake data: names, addresses, phone numbers, etc.
 gem 'faker', '~> 3.1', '>= 3.1.1'
+
+# Modern Kafka client library for Ruby based on librdkafka
+gem 'rdkafka', '~> 0.12.0'
